@@ -1,23 +1,15 @@
 import React, { useState } from "react";
-import Counter from "./components/Counter";
+import Counter, { maxChars } from "./components/Counter";
+import Feed from "./components/Feed";
+import TweetForm from "./components/TweetForm";
 import "./App.css";
 
 function App() {
-  const [chars, setChars] = useState("");
   const [tweets, setTweets] = useState([]);
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setTweets((previousTweets) => {
-      return [
-        {
-          userName: userName,
-          message: chars,
-          date: new Date(),
-        },
-        ...previousTweets,
-      ];
-    });
+  const addTweet = (tweet) => {
+    setTweets((previousTweets) => [tweet, ...previousTweets]);
   };
 
   return (
@@ -30,41 +22,17 @@ function App() {
         </p>
       </div>
       <div className="top">
-        <form onSubmit={handleSubmit}>
-          <div className="user-dropdown">
-            <div className="label">
-              <label htmlFor="username">Select a username:</label>
-            </div>
-            <div className="userselect">
-              <select name="username" id="username">
-                <option value="brittany">Brittany</option>
-                <option value="jason">Jason</option>
-                <option value="monique">Monique</option>
-                <option value="man-khoi">Man-Khoi</option>
-                <option value="jasmine">Jasmine</option>
-              </select>
-            </div>
-          </div>
-          <div className="count">
-            <Counter
-              chars={chars}
-              onChange={(input) => {
-                setChars(input);
-              }}
-            />
-          </div>
-          <div className="submit-button">
-            <button className="save-form" type="submit">
-              Post!
-            </button>
-          </div>
-        </form>
+        <TweetForm
+          addTweet={addTweet}
+          message={message}
+          setMessage={setMessage}
+          maxChars={maxChars}
+        />
+        <Counter chars={message} />
       </div>
+      <br />
       <div className="bottom">
-        <div className="postList">
-          <h3>Post Feed</h3>
-          <ol></ol>
-        </div>
+        <Feed tweets={tweets} />
       </div>
     </div>
   );

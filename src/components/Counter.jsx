@@ -1,25 +1,14 @@
-const Counter = ({ chars, onChange }) => {
-  const maxChars = 120;
+export const maxChars = 120;
 
-  const handleCharChange = (e) => {
-    const input = e.target.value;
-    const charsLeft = maxChars - input.length;
-    onChange(input);
-  };
+const Counter = ({ chars, onChange }) => {
+  const charsLeft = maxChars - chars.length;
 
   return (
     <>
-      <textarea
-        onChange={handleCharChange}
-        placeholder="What's on your mind?"
-        name="message"
-        id="message"
-        value={chars}
-      />
       <p>
         Characters Left:{" "}
-        <span style={chars < 0 ? { color: "red" } : { color: "black" }}>
-          {chars}
+        <span style={charsLeft < 0 ? { color: "red" } : { color: "black" }}>
+          {charsLeft}
         </span>
       </p>
     </>
