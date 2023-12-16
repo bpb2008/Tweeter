@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Counter, { maxChars } from "./components/Counter";
+import Counter from "./components/Counter";
 import Feed from "./components/Feed";
 import TweetForm from "./components/TweetForm";
 import "./App.css";
@@ -26,12 +26,11 @@ function App() {
           addTweet={addTweet}
           message={message}
           setMessage={setMessage}
-          maxChars={maxChars}
         />
         <Counter chars={message} />
       </div>
-      <br />
       <div className="bottom">
+        <h3>Post Feed</h3>
         <Feed tweets={tweets} />
       </div>
     </div>

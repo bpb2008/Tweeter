@@ -1,17 +1,15 @@
-export const maxChars = 120;
+export const MAX_MESSAGE_LENGTH = 120;
 
-const Counter = ({ chars, onChange }) => {
-  const charsLeft = maxChars - chars.length;
+const Counter = ({ chars }) => {
+  const charsLeft = MAX_MESSAGE_LENGTH - chars.length;
 
   return (
-    <>
-      <p>
-        Characters Left:{" "}
-        <span style={charsLeft < 0 ? { color: "red" } : { color: "black" }}>
-          {charsLeft}
-        </span>
-      </p>
-    </>
+    <p>
+      Characters Left:{" "}
+      <span style={charsLeft < 0 ? { color: "red" } : { color: "black" }}>
+        {charsLeft}
+      </span>
+    </p>
   );
 };
 

@@ -40,13 +40,11 @@ const TweetForm = ({ addTweet, message, setMessage, maxChars }) => {
         <option value="Man-Khoi">Man-Khoi</option>
         <option value="Jasmine">Jasmine</option>
       </select>
-      <br />
       <textarea
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         placeholder="What's on your mind?"
       />
-      <br />
       <button type="submit">Post!</button>
     </form>
   );
