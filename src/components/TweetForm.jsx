@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { MAX_MESSAGE_LENGTH } from "./Counter";
 
-const TweetForm = ({ addTweet, message, setMessage, maxChars }) => {
+const TweetForm = ({ addTweet, message, setMessage }) => {
   const [userName, setUserName] = useState("Brittany");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (message.length > maxChars) {
+    if (message.length > MAX_MESSAGE_LENGTH) {
       alert("Tweet exceeds 120 characters!");
       return;
     }

@@ -28,8 +28,9 @@ h1 {
 textarea {
   border-radius: 5px; 
   border: 1px solid transparent; 
-  width: 90%; 
   height: 50px; 
+  width: 90%;
+  resize: none; 
   font-family: "Poppins", sans-serif; 
 }
 
